@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Welcome to the Contact Us.</h1><br/>
+<h3 align="center">Register yourself with us</h3>
+<hr>
+<form method="POST" action="/formprocess">{% csrf_token %}
+    First Name : <input type="text" placeholder="Enter First Name" name="fname" required/><br/><br/>
+    Last Name : <input type="text" placeholder="Enter Last Name" name="lname" required/><br/><br/>
+    Email : <input type="text" placeholder="Enter Email" name="email" required/><br/><br/>
+    DoB : <input type="date" placeholder="Enter Date of Birth" name="dob" required/><br/><br/>
+    Mobile : <input type="number" placeholder="Enter mobile number" name="mobile" required/><br/><br/>
+    <input type="submit" name="submit" required />
+
+</form>
+
+{% endblock %}
