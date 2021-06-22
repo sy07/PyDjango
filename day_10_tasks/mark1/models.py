@@ -18,3 +18,13 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.fname        
+
+class Contact_us(models.Model):
+    fname = models.CharField(max_length=20)
+    lname = models.CharField(max_length=20)
+    mail = models.CharField(max_length=20)
+    dob = models.CharField(max_length=10)
+    mobile = models.IntegerField()
+
+    def __str__(self) :
+         return self.fname      

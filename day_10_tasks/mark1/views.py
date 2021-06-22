@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, response
 from django.views.generic import ListView
-from .models import Student
+from .models import Contact_us, Student
 
 def homepageview(request):
     return render(request,'home.html')
@@ -25,11 +25,19 @@ def process(request):
     lname = (request.POST['lname'])
     mail = (request.POST['email'])
     dob = (request.POST['dob'])
-    mobile = (request.POST['mobile'])
+    mobile = int(request.POST['mobile'])
+
+    contact_us = Contact_us(fname = fname,lname= lname,mail=mail,dob = dob,mobile=mobile)
+    contact_us.save()
     
-    return render(request,'ans.html',{'fname':fname,'lname':lname,'mail':mail,'dob':dob,'mobile':mobile})   
+    return render(request,'home.html')   
 
 class studentlist(ListView):
     model = Student
     template_name = 'slist.html'
          
+def ans(request):
+    data = Contact_us.objects.all()
+    print(data)
+    context = {'contacts':data}
+    return render(request,'ans.html',context)
