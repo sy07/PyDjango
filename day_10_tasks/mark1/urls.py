@@ -9,4 +9,5 @@ urlpatterns =[
     path('myform',views.myform,name="myform"),
     path('formprocess',views.process,name='process'),
     path('slist',views.studentlist.as_view(),name='s1'),
+    path('ans',views.ans,name="ans"),
 ]

@@ -3,11 +3,34 @@
 
 {% block content %}
 
-FirstName : {{fname}}<br/>
-Last name : {{lname}}<br/>
-Email : {{mail}}<br/>
-Date of Birth : {{dob}}<br/>
-Mobile Number : {{mobile}}<br/>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>mail</th>
+                <th>dob</th>
+                <th>mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{contact.fname}}</td>
+            <td>{{contact.lname}}</td>
+            <td>{{contact.mail}}</td>
+            <td>{{contact.dob}}</td>
+            <td>{{contact.mobile}}</td>
+        </tr>   
+        {% endfor %}
+        <tbody>
+    </table>
+    
+
+
+
 
 {% endblock %}
 
